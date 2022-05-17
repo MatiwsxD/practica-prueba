@@ -26,6 +26,7 @@ public class guardar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnguardar = new javax.swing.JButton();
         btnsiguiente = new javax.swing.JButton();
+        btnsavexml = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class guardar extends javax.swing.JFrame {
             }
         });
 
+        btnsavexml.setText("savexml");
+        btnsavexml.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsavecmlActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,6 +78,8 @@ public class guardar extends javax.swing.JFrame {
                                 .addComponent(txtcedula)
                             .addComponent(txtpuesto, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
+                            .addGap(107, 107, 107)
+                            .addComponent(btnsavexml)
                         .addGap(147, 147, 147)
                         .addComponent(btnguardar)))
                 .addContainerGap(146, Short.MAX_VALUE))
@@ -96,8 +106,9 @@ public class guardar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                    .addGap(55, 55, 55)
+                    .addComponent(btnsavexml)
                 .addGap(55, 55, 55)
-
                 .addComponent(btnguardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnsiguiente))
@@ -116,6 +127,10 @@ crudsql crud=new crudsql();
        objmostrar.setLocationRelativeTo(null);
        this.setVisible(false);
     }//GEN-LAST:event_btnsiguienteActionPerformed
+
+    private void btnsavecmlActionPerformed(java.awt.event.ActionEvent evt) {
+        crud.saveDataOnXML();
+    }
 
     /**
      * @param args the command line arguments
@@ -155,6 +170,7 @@ crudsql crud=new crudsql();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnsiguiente;
+    private javax.swing.JButton btnsavexml;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

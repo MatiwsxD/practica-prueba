@@ -82,4 +82,23 @@ public class crudsql extends conexionsql {
         }
     }
 
+    public void saveDataOnXML(){
+        try{
+            createXML xml = new createXML();
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "select * from empleados;";
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                xml.addUsuario(rs.getString("cedula"), rs.getString("nombre"), rs.getString("telefono"),rs.getString("mail"));
+            }
+            xml.endDocument();
+            JOptionPane.showMessageDialog(null, "Documento guardado con exito","Save",JOptionPane.INFORMATION_MESSAGE);
+
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error al guardar el documento "+ e,"Error",JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
 }
